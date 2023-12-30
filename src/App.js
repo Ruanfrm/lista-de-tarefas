@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+// index.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Login from "./pages/Login";
+import Config from "./pages/config/Config"
+import Privete from "./routes/privete" 
 
-export default App;
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Login/>,
+  },
+  {
+    path: "/listadeterefas",
+    element: <Privete><Config/></Privete>,
+  },
+  
+ 
+]);
+
+export {router};
